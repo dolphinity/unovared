@@ -1,10 +1,10 @@
 PYTHON := python
 MD5 := md5sum -c --quiet
 
-2bpp     := $(PYTHON) extras/pokemontools/gfx.py 2bpp
-1bpp     := $(PYTHON) extras/pokemontools/gfx.py 1bpp
-pic      := $(PYTHON) extras/pokemontools/pic.py compress
-includes := $(PYTHON) extras/pokemontools/scan_includes.py
+2bpp     := $(PYTHON) -m extras.pokemontools.gfx 2bpp
+1bpp     := $(PYTHON) -m extras.pokemontools.gfx 1bpp
+pic      := $(PYTHON) -m extras.pokemontools.pic compress
+includes := $(PYTHON) -m extras.pokemontools.scan_includes
 
 pokered_obj := audio_red.o main_red.o text_red.o wram_red.o
 pokeblue_obj := audio_blue.o main_blue.o text_blue.o wram_blue.o
