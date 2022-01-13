@@ -1,3 +1,9 @@
+# Pokemon Unova Red by Azure_Keys
+
+https://www.pokecommunity.com/showthread.php?t=413878
+
+Built from pokered
+
 # Pokémon Red and Blue
 
 This is a disassembly of Pokémon Red and Blue.
