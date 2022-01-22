@@ -29,12 +29,9 @@ jobs:
       run: virtualenv venv -p python27 && source venv/bin/activate && 
            make;
            mv unovared/pokered.gbc unovared/unovared.gbc
-           rm unovared/pokeblue.gbc
     - uses: actions/upload-artifact@v2
       with:
         name: unovared
         path: |
-          unovared/*.gbc
-          *.gbc
-          *.gb
+          unovared.gbc
         retention-days: 1
