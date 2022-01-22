@@ -8753,7 +8753,19 @@ ShiftGearEffect:
 	jp StatModifierUpEffect 
 
 AttackUp1SideEffect:
+	ld a, [H_WHOSETURN]
+	and a
+	jr z, .notEnemyTurn
+;Enemy's turn
 	call BattleRandom
 	cp $19 ; ~10% chance
 	ret nc
-	jr StatModifierUpEffect
+	ld a, ATTACK_UP1_EFFECT
+	jp StatModifierUpEffect
+.notEnemyTurn
+	call BattleRandom
+	cp $19 ; ~10% chance
+	ret nc
+	ld a, ATTACK_UP1_EFFECT
+	ld [wPlayerMoveEffect], a
+	jp StatModifierUpEffect
