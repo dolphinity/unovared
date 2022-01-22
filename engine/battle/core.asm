@@ -8756,4 +8756,4 @@ AttackUp1SideEffect:
 	call BattleRandom
 	cp $19 ; ~10% chance
 	ret nc
-	jr ATTACK_UP1_EFFECT
+	jr StatModifierUpEffect
