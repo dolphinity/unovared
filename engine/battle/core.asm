@@ -7223,6 +7223,7 @@ MoveEffectPointerTable:
 	 dw LeechSeedEffect           ; LEECH_SEED_EFFECT
 	 dw SplashEffect              ; SPLASH_EFFECT
 	 dw DisableEffect             ; DISABLE_EFFECT
+	 dw AttackUp1SideEffect      ; ATTACK_UP1_SIDE_EFFECT
 
 SleepEffect:
 	ld de, wEnemyMonStatus
@@ -8750,4 +8751,9 @@ ShiftGearEffect:
 	ld a, SPEED_UP2_EFFECT
 	ld [wPlayerMoveEffect], a
 	jp StatModifierUpEffect 
-	
+
+AttackUp1SideEffect:
+	call BattleRandom
+	cp $19 ; ~10% chance
+	ret nc
+	jr ATTACK_UP1_EFFECT

@@ -141,7 +141,7 @@ MoveEnd:
         move GIGA_DRAIN,   DRAIN_HP_EFFECT,             75, GRASS,     100, 10
         move SWIFT,        SWIFT_EFFECT,                60, NORMAL,   100, 20
         move SKULL_BASH,   CHARGE_EFFECT,              120, NORMAL,   100, 15
-        move METAL_CLAW,   NO_ADDITIONAL_EFFECT,       50, STEEL,   100, 35
+        move METAL_CLAW,   ATTACK_UP1_SIDE_EFFECT,           50, STEEL,   95, 35
         move IRON_HEAD,    FLINCH_SIDE_EFFECT1,         80, STEEL,   100, 15
         move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC,  100, 20
         move CRUNCH,       DEFENSE_DOWN_SIDE_EFFECT,    80, DARK,   100, 15
