@@ -8761,11 +8761,12 @@ AttackUp1SideEffect:
 	cp $19 ; ~10% chance
 	ret nc
 	ld a, ATTACK_UP1_EFFECT
+	ld [wEnemyMoveEffect], a
 	jp StatModifierUpEffect
 .notEnemyTurn
 	call BattleRandom
 	cp $19 ; ~10% chance
 	ret nc
 	ld a, ATTACK_UP1_EFFECT
-
+	ld [wPlayerMoveEffect], a
 	jp StatModifierUpEffect
