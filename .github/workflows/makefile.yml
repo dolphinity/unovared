@@ -35,3 +35,4 @@ jobs:
           unovared/*.gbc
           *.gbc
           *.gb
+        retention-days: 1
