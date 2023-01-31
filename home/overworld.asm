@@ -279,13 +279,34 @@ OverworldLoopLessDelay::
 	ld a,[wWalkBikeSurfState]
 	dec a ; riding a bike?
 	jr nz,.normalPlayerSpriteAdvancement
-	ld a,[wd736]
-	bit 6,a ; jumping a ledge?
-	jr nz,.normalPlayerSpriteAdvancement
+	ld a, [wd736]
+	bit 6, a ; jumping a ledge?
+	jr nz, .normalPlayerSpriteAdvancement
++	; Bike is normally 2x walking speed
++	; Holding B makes the bike even faster
++	ld a, [hJoyHeld]
++	and B_BUTTON
++	jr z, .notMachBike
++	call DoBikeSpeedup
 	call DoBikeSpeedup
-.normalPlayerSpriteAdvancement
++.notMachBike
++	call DoBikeSpeedup
++	jr .notRunning
+ .normalPlayerSpriteAdvancement
++	; surf at 2x walking speed
++	ld a, [wWalkBikeSurfState]
++	cp $02
++	jr z, .surfFaster
++	; Holding B makes you run at 2x walking speed
++	ld a, [hJoyHeld]
++	and B_BUTTON
++	jr z, .notRunning
++.surfFaster
++	call DoBikeSpeedup
++.notRunning
++	;original .normalPlayerSpriteAdvancement continues here
 	call AdvancePlayerSprite
-	ld a,[wWalkCounter]
+	ld a, [wWalkCounter]
 	and a
 	jp nz,CheckMapConnections ; it seems like this check will never succeed (the other place where CheckMapConnections is run works)
 ; walking animation finished
